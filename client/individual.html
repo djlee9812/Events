@@ -1,0 +1,41 @@
+<template name="individual">
+	<form role="form">
+		<div class="form-group">
+			<label>Name of Event</label>
+			<input type="text" class="form-control" name="title">
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4">
+					<label>Date</label>
+					<input type="text" class="datepicker form-control" name="date">
+				</div>
+				<div class="col-md-4">
+					<div class="clockpicker">
+						<label>Starting Time</label>
+						<input type="text" class="form-control" name="starting-time" value="00:00" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="clockpicker">
+						<label>Ending Time</label>
+						<input type="text" class="form-control" name="ending-time" value="00:00" id="ending-time" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Location</label>
+			<input type="text" class="form-control" name="location" placeholder="City, State or City, Country">
+		</div>
+		<div class="form-group">
+			<label>Description <span class="unbolded-label">(Optional)</span></label>
+			<input type="text" class="form-control" name="description">
+		</div>
+		<div class="form-group">
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			</div>
+		</div>
+	</form>
+</template>
