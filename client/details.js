@@ -42,12 +42,16 @@ Template.details.events({
 
 		if(formVal == tmplTitle){
 			$('#myModal').modal('hide');
+			$('body').removeClass('modal-open');
+			$('.modal-backdrop').remove();
 			Events.remove(this._id);
 			toastr.success("Event deleted");
-			Router.go('/');
 		} else {
 			toastr.error("The title you entered does not match the event title.");
+			return;
 		}
+		Router.go('/');
+
 
 
 	}

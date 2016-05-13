@@ -8,6 +8,7 @@ if(!Events.findOne()){
 		createdBy: 'Admin',
 		src: 'ribbon.jpg',
 		location: 'Cypress, CA',
+		description: 'Opening ceremony of the Events App! Come join us at Cypress, CA to watch the unveiling of this application to the public. All are welcome to join this public event, no invitation required.'
 	});
 	Events.insert({
 		title: 'Registration',
