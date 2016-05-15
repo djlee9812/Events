@@ -18,5 +18,5 @@ Template.event.helpers({
 			return true;
 		}
 		return false;
-	},
+	}
 });

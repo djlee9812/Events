@@ -1,6 +1,5 @@
 accounts-base@1.2.7
 accounts-password@1.1.8
-aldeed:autoform@5.8.1
 aldeed:collection2@2.3.1
 aldeed:simple-schema@1.1.0
 allow-deny@1.0.4
@@ -35,6 +34,7 @@ easysearch:components@2.0.5
 easysearch:core@2.0.9
 ecmascript@0.4.3
 ecmascript-runtime@0.2.10
+edgee:slingshot@0.7.1
 ejson@1.0.11
 email@1.0.12
 es5-shim@4.5.10

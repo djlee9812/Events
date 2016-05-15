@@ -11,10 +11,6 @@ Template.header.events({
 		e.preventDefault();
 		toastr.warning("Sign in to create event!");
 	},
-	'click #your-events'(e) {
-		e.preventDefault();
-		Router.go('/');
-	},
 	'submit #search-form'(event) {
 		event.preventDefault();
 		const text = $(event.target).val().trim();

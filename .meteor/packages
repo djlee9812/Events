@@ -26,9 +26,9 @@ meteorhacks:fast-render
 chrismbeckett:toastr
 ian:accounts-ui-bootstrap-3
 momentjs:moment
-aldeed:autoform
 aldeed:collection2
 aldeed:simple-schema
 rajit:bootstrap3-datepicker
 andrasph:clockpicker
 matteodem:easy-search
+edgee:slingshot
