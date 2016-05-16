@@ -2,14 +2,19 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h2>{{title}}</h2>
-			<h5>Hosted by: {{createdBy}}</h5>
-			<p>from {{startTime}} to {{endTime}}</p>
+			<p>Hosted by: <b>{{createdBy}}</b></p>
+			<p>from <b>{{startTime}}</b> to <b>{{endTime}}</b></p>
+			<p>At <b>{{location}}</b></p>
 			<hr/>
 			<p>{{description}}</p>
+			<hr/>
 
 			{{#if ownEvent}}
-			<hr/>
+			<button type="button" class="btn btn-info" id="edit-event"> Edit Event</button>
 			<button type="button" class="btn btn-danger" id="delete-event" data-toggle="modal" data-target="#myModal">Delete Event</button>
+			{{else}}
+			<button type="button" class="btn {{interestBtn}}" id="interested"><i class="fa fa-star" aria-hidden="true"></i>Interested!</button>
+			<button type="button" class="btn {{goingBtn}}" id="going"><i class="fa fa-check" aria-hidden="true"></i>Going!</button> 
 			{{/if}}
 		</div>
 

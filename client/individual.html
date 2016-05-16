@@ -2,7 +2,7 @@
 	<form role="form">
 		<div class="form-group">
 			<label>Name of Event</label>
-			<input type="text" class="form-control" name="title">
+			<input type="text" class="form-control" name="title" value="{{title}}">
 		</div>
 		<div class="form-group">
 			<div class="row">
@@ -13,13 +13,13 @@
 				<div class="col-md-4">
 					<div class="clockpicker">
 						<label>Starting Time</label>
-						<input type="text" class="form-control" name="starting-time" value="00:00" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+						<input type="text" class="form-control" name="starting-time" value="08:00" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="clockpicker">
 						<label>Ending Time</label>
-						<input type="text" class="form-control" name="ending-time" value="00:00" id="ending-time" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+						<input type="text" class="form-control" name="ending-time" value="10:00" id="ending-time" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
 					</div>
 				</div>
 			</div>
@@ -41,5 +41,13 @@
 				<button type="submit" class="btn btn-primary btn-block">Submit</button>
 			</div>
 		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+				<span class="sr-only">{{progress}}% Complete</span>
+			</div>
+		</div>
+		{{#if uploadingProgress}}
+		<p>Uploading image...</p>
+		{{/if}}
 	</form>
 </template>

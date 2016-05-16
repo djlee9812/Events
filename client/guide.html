@@ -1,4 +1,97 @@
 <template name="guide">
+	<h4>Step 1</h4>
+	<p>Brainstorm a clear purpose for your event. Why are you hosting this event? What is the end goal? Know the answers to these questions before proceeding.</p>
+	<br/>
 
+	<form role="form">
+		<div class="step-2">
+			<h4>Step 2</h4>
+			<p>What is the name of your event? Create a concise and creative <b>title</b> that would catch people's attention!</p>
+			<div class="form-group">
+				<input type="text" class="form-control" name="title" placeholder="Title">
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-3">
+			<h4>Step 3</h4>
+			<p>Although this isn't required, write a quick <b>description</b> of the event to let attendees know details of your event! This will also help you plan your event better! You can also incorporate ideas from the brainstorm into this form.</p>
+			<div class="form-group">
+				<input type="text" class="form-control" name="description" placeholder="Description (optional)">
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-4">
+			<h4>Step 4</h4>
+			<p>Choose a <b>date</b> for your event. It should be convenient not only for you, but for all of the guests so that you get a high attendance turnout.</p>
+			<div class="form-group">
+				<input type="text" class="datepicker form-control" name="date" value="{{today}}">
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-5">
+			<h4>Step 5</h4>
+			<p>Choose a beginning and ending <b>time</b> for the event. Again, make sure that the time is convenient for both you and your guests.</p>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<label for="starting">Start</label>
+						<input type="text" class="form-control clockpicker" name="starting-time" value="08:00" id="starting" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<label for="ending">End</label>
+						<input type="text" class="form-control clockpicker" name="ending-time" value="10:00" id="ending" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+					</div>
+				</div>
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-6">
+			<h4>Step 6</h4>
+			<p>Choose a <b>location</b> for your event. It should be easily accessible. Input the city and state if within the US, or city and country if in a different country.</p>
+			<div class="form-group">
+				<input type="text" class="form-control" name="location" placeholder="Location">
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-7">
+			<h4>Step 7</h4>
+			<p>If possible, <b>upload an image</b> that is both visually appealing and informative. Let your guests quickly receive information about the event. You can also include a picture of the venue. Only one picture may be submitted.</p>
+			<div class="form-group">
+				<input type="file" name="file" id="file" class="inputfile" accept="image/*" data-multiple-caption="{count} files selected" multiple />
+				<label for="file">Upload an Image <span class="unbolded-text">(Recommended)</span></label>
+			</div>
+			<br/>
+		</div>
+
+		<div class="step-8">
+			<h4>Step 8</h4>
+			<p>Once you are ready and have finalized your idea, <b>submit</b> the form to have your event created!</p>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary btn-block">Submit</button>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="progress">
+							<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+								<span class="sr-only">{{progress}}% Complete</span>
+							</div>
+						</div>
+						{{#if uploadingProgress}}
+						<p>Uploading image...</p>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
 
 </template>

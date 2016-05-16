@@ -1,0 +1,12 @@
+<template name="going">
+	<h1>Events Marked Going</h1>
+	<hr/>
+	{{#if marked}}
+	{{#each events}}
+	{{> event}}
+	<hr/>
+	{{/each}}
+	{{else}}
+	<h4>You haven't marked any event as going</h4>
+	{{/if}}
+</template>

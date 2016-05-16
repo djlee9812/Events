@@ -4,11 +4,9 @@ import { Events } from '../lib/events.js';
 import { Moment } from 'meteor/momentjs:moment';
 import { Slingshot } from 'meteor/edgee:slingshot';
 
-import './create.html';
-
 let upload = new ReactiveVar();
 
-Template.individual.onRendered(() => {
+Template.guide.onRendered(() => {
 	//initialize calendar and clock
 	$('.datepicker').datepicker({startDate: '3d', orientation: 'bottom auto'});
 	$('.clockpicker').clockpicker();
@@ -35,28 +33,56 @@ Template.individual.onRendered(() => {
   			label.innerHTML = labelVal;
   	});
   });
+
+  /*$('body').on('keypress', function() {
+  	if($('.step-2').hasClass('hidden')){
+  		$('.step-2').removeClass('hidden');
+  	}
+  });*/
 });
 
-Template.individual.helpers({
+Template.guide.helpers({
+	'today'() {
+		return moment().format("MM/DD/YYYY")
+	},
 	progress: function () {
 		if(upload.get()){
-			return prog = Math.round(upload.get().progress() * 100);
+			return Math.round(upload.get().progress() * 100);
 		}
 	},
 	uploadingProgress: function () {
 		return Boolean(upload.get());
-	}
+	},
 });
 
-Template.individual.events({
+Template.guide.events({
 	'change .inputfile'(event) {
 		if(event.target.files.length > 1) {
 			event.preventDefault();
 			toastr.warning("Please select a single image");
 		}
+	},/*
+	'blur .step-2'() {
+		$('.step-3').removeClass('hidden');
 	},
+	'blur .step-3'() {
+		$('.step-4').removeClass('hidden');
+	},	
+	'blur .step-4'() {
+		$('.step-5').removeClass('hidden');
+	},	
+	'blur .step-5'() {
+		$('.step-6').removeClass('hidden');
+	},	
+	'blur .step-6'() {
+		$('.step-7').removeClass('hidden');
+	},
+	'blur .step-7'() {
+		$('.step-8').removeClass('hidden');
+	},*/
 	"submit form": function(event) {
 		event.preventDefault();
+		console.log(event);
 
 		const title = $('input[name=title]').val();
 		const date = $('input[name=date]').val();
@@ -68,6 +94,7 @@ Template.individual.events({
 		if(event.target[6].files[0]) {
 			imgName = event.target[6].files[0].name;
 		}
+
 
 		const startString = date + " " + startingTime;
 		const start = moment(startString, "MM/DD/YYYY HH:mm");
@@ -103,7 +130,6 @@ Template.individual.events({
 			return;
 		}
 
-		//if image included
 		if(event.target[6].files[0]){
 			const uploader = new Slingshot.Upload("myFileUploads");
 
@@ -112,7 +138,6 @@ Template.individual.events({
 			    // Log service detailed response.
 			    console.error('Error uploading', uploader.xhr.response);
 			    console.error(error);
-			    toastr.error('Error uploading the image');
 			  }
 			  else {
 			  	const attr = {
@@ -135,7 +160,7 @@ Template.individual.events({
 			  }
 			});
 			upload.set(uploader);
-		}	else {
+		} else {
 			const attr = {
 				title: title,
 				start: start.toDate(),
@@ -152,6 +177,6 @@ Template.individual.events({
 					Router.go('/details/' + result);
 				}
 			});
-		}	
+		}
 	}
 });
